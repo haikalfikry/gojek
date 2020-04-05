@@ -33,8 +33,8 @@ function change(){
          $pilih1 = trim(fgets(STDIN));
          if($pilih1 == "y" || $pilih1 == "Y"){
          //if($pilih1 == "y" && strpos($no, "628")){
-         echo color("red","========( PIN ANDA = 220600 )========")."\n";
-         $data2 = '{"pin":"220600"}';
+         echo color("nevy","(•) Pin : ");
+         $data2 = trim(fgets(STDIN));
          $getotpsetpin = request("/wallet/pin", $token, $data2, null, null, $uuid);
          echo "Otp set pin: ";
          $otpsetpin = trim(fgets(STDIN));
@@ -45,12 +45,12 @@ function change(){
          }else{
          echo color("red","-] GAGAL!!!\n");
          }
-         
          }
          }
+         }else{
+         goto setpin;
          }
-         
-         else{
+         }else{
          echo color("red","-] Otp yang anda input salah");
          echo"\n==================================\n\n";
          echo color("yellow","!] Silahkan input kembali\n");
