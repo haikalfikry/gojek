@@ -33,10 +33,10 @@ function change(){
          $pilih1 = trim(fgets(STDIN));
          if($pilih1 == "y" || $pilih1 == "Y"){
          //if($pilih1 == "y" && strpos($no, "628")){
-         echo color("nevy","(•) Pin : ");
-         $data2 = trim(fgets(STDIN));
+         echo color("red","========( PIN ANDA = 123123 )========")."\n";
+         $data2 = '{"pin":"123123"}';
          $getotpsetpin = request("/wallet/pin", $token, $data2, null, null, $uuid);
-         echo "Otp set pin: ";
+         echo color("nevy","?] Otp: ");
          $otpsetpin = trim(fgets(STDIN));
          $verifotpsetpin = request("/wallet/pin", $token, $data2, null, $otpsetpin, $uuid);
          echo $verifotpsetpin;
@@ -61,9 +61,9 @@ function change(){
          echo "\n==============Register==============\n";
          goto ulang;
          }else{
-         die();
+         Die();
   }
  }
-         }
+}
          
 echo change()."\n"; ?>
