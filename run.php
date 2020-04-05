@@ -61,8 +61,7 @@ function change(){
          echo "\n==============Register==============\n";
          goto ulang;
          }else{
-         echo "\n==============Register==============\n";
-         goto ulang;
+         die();
   }
  }
          }
