@@ -53,8 +53,6 @@ function change(){
          goto otp;
          }
          }
-         }
-         
          else{
          echo color("red","NOMOR SUDAH TERDAFTAR/SALAH !!!");
          echo "\nMau ulang? (y/n): ";
@@ -67,5 +65,6 @@ function change(){
          goto ulang;
   }
  }
-}
+         }
+         
 echo change()."\n"; ?>
