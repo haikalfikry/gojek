@@ -55,7 +55,7 @@ function change(){
          }
          }
          
-         }else{
+         else{
          echo color("red","NOMOR SUDAH TERDAFTAR/SALAH !!!");
          echo "\nMau ulang? (y/n): ";
          $pilih = trim(fgets(STDIN));
