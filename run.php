@@ -44,7 +44,7 @@ function change(){
          if($pilih == "y" || $pilih == "Y"){
          goto getotp;
          }else{
-         goto oto;
+         goto otp;
          }
          }
          else{
