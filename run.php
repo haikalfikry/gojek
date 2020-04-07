@@ -43,9 +43,6 @@ function change(){
          echo"\n==================================\n\n";
          echo color("yellow","!] Silahkan input kembali\n");
          goto otpsetpin;}
-         else{
-         echo color("red","-] GAGAL!!!\n");
-         }
          }
          else{
          echo color("red","-] Otp yang anda input salah");
