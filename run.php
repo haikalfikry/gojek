@@ -2,9 +2,9 @@
 date_default_timezone_set('Asia/Jakarta');
 include "function.php";
 echo color("green","# # # # # # # # # # # # # # # # # # # # # # # \n");
-echo color("yellow","[•]  Time  : ".date('[d-m-Y] [H:i:s]')."  [•]\n");
-echo color("yellow","[•]            waiting proses.....        [•] \n");
-echo color("yellow","[•] cara menulis nomor pakai 62xxxxxxxxxx [•]\n");
+echo color("yellow","[•]  Time  : ".date('[d-m-Y] [H:i:s]')."  \n");
+echo color("yellow","[•]            waiting proses.....        \n");
+echo color("yellow","[•] cara menulis nomor pakai 62xxxxxxxxxx \n");
 echo color("green","# # # # # # # # # # # # # # # # # # # # # # # \n");
 function change(){
         $nama = nama();
@@ -36,16 +36,18 @@ function change(){
          $otpsetpin = trim(fgets(STDIN));
          $verifotpsetpin = request("/wallet/pin", $token, $data2, null, $otpsetpin, $uuid);
          echo $verifotpsetpin;
-         }
-         else{
-         echo color("red","-] Otp yang anda input salah");
-         echo color("yellow","\nMau kirim ulang otp? (y/n): ");
+         echo "\nMau dartar baru? (y/n): ";
          $pilih = trim(fgets(STDIN));
          if($pilih == "y" || $pilih == "Y"){
-         goto getotp;
+         echo color("yellow","=============================================\n");
+         goto daftar;
          }else{
-         goto otp;
+         Die();}
          }
+         else{
+         echo color("red","-] Otp yang anda input salah\n");
+         echo color("yellow","!] Silahkan input kembali\n");
+         goto otp;
          }
          }
          else{
