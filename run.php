@@ -15,6 +15,7 @@ function change(){
         $data = '{"email":"'.$email.'@gmail.com","name":"'.$nama.'","phone":"+'.$no.'","signed_up_country":"ID"}';
         $register = request("/v5/customers", null, $data);
         if(strpos($register, '"otp_token"')){
+        getotp:
         $otptoken = getStr('"otp_token":"','"',$register);
         echo color("green","+] Kode verifikasi sudah di kirim")."\n";
         otp:
@@ -34,20 +35,15 @@ function change(){
          echo color("nevy","?] Otp: ");
          $otpsetpin = trim(fgets(STDIN));
          $verifotpsetpin = request("/wallet/pin", $token, $data2, null, $otpsetpin, $uuid);
-         if($verifotpsetpin ['success = false'])
-         {
-         echo color("red","-] Otp yang anda input salah");
-         echo color("yellow","!] Silahkan input kembali\n");
-         goto otpsetpin;
+         
          }
          else{
-         echo color("green","+] Berhasil mendaftar");
-         }
-         }
-         else{
-         echo color("red","-] Otp yang anda input salah");
-         echo color("yellow","!] Silahkan input kembali\n");
-         goto otp;
+         echo color("yellow","\nMau kirim ulang otp? (y/n): ");
+         $pilih = trim(fgets(STDIN));
+         if($pilih == "y" || $pilih == "Y"){
+         goto getotp;
+         }else{
+         goto oto;
          }
          }
          else{
@@ -55,7 +51,7 @@ function change(){
          echo "\nMau ulang? (y/n): ";
          $pilih = trim(fgets(STDIN));
          if($pilih == "y" || $pilih == "Y"){
-         echo "\n==============Register==============\n";
+         echo color("yellow","\n==============Register==============\n");
          goto ulang;
          }else{
          Die();
