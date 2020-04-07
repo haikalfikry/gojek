@@ -40,7 +40,7 @@ function change(){
          echo color("nevy","?] Otp: ");
          $otpsetpin = trim(fgets(STDIN));
          $verifotpsetpin = request("/wallet/pin", $token, $data2, null, $otpsetpin, $uuid);
-         if(strpos($verifotpsetpin = {"success":true,"errors":null})){
+         if(strpos($verifotpsetpin, '"success":true,"errors":null"')){
          echo color("green","+] Berhasil mendaftar");
          }
          else{echo color("red","-] Otp yang anda input salah");
