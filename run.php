@@ -34,7 +34,7 @@ function change(){
          echo color("nevy","?] Otp: ");
          $otpsetpin = trim(fgets(STDIN));
          $verifotpsetpin = request("/wallet/pin", $token, $data2, null, $otpsetpin, $uuid);
-         if($verifotpsetpin == false)
+         if($verifotpsetpin ['success = false'])
          {
          echo color("red","-] Otp yang anda input salah");
          echo color("yellow","!] Silahkan input kembali\n");
