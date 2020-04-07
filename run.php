@@ -26,8 +26,6 @@ function change(){
         echo color("green","+] Berhasil mendaftar");
         $token = getStr('"access_token":"','"',$verif);
         $uuid = getStr('"resource_owner_id":',',',$verif);
-        echo "\n".color("yellow","+] Your access token : ".$token."\n");
-        save("token.txt",$token);
          setpin:
          echo color("red","========( PIN ANDA = 220600 )========")."\n";
          $data2 = '{"pin":"220600"}';
@@ -36,7 +34,7 @@ function change(){
          echo color("nevy","?] Otp: ");
          $otpsetpin = trim(fgets(STDIN));
          $verifotpsetpin = request("/wallet/pin", $token, $data2, null, $otpsetpin, $uuid);
-         if($verifotpsetpin['success'] == true){
+         if($verifotpsetpin['success'] == 1){
          echo color("green","+] Berhasil mendaftar");
          }
          else{echo color("red","-] Otp yang anda input salah");
