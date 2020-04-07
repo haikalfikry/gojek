@@ -39,7 +39,7 @@ function change(){
          echo "\nMau dartar baru? (y/n): ";
          $pilih = trim(fgets(STDIN));
          if($pilih == "y" || $pilih == "Y"){
-         echo color("yellow","=============================================\n");
+         echo color("yellow","\n=============================================\n");
          goto daftar;
          }else{
          Die();}
