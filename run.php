@@ -23,7 +23,7 @@ function change(){
         $data1 = '{"client_name":"gojek:cons:android","data":{"otp":"' . $otp . '","otp_token":"' . $otptoken . '"},"client_secret":"83415d06-ec4e-11e6-a41b-6c40088ab51e"}';
         $verif = request("/v5/customers/phone/verify", null, $data1);
         if(strpos($verif, '"access_token"')){
-        echo color("green","+] Berhasil mendaftar");
+        echo color("green","+] Berhasil mendaftar\n");
         $token = getStr('"access_token":"','"',$verif);
         $uuid = getStr('"resource_owner_id":',',',$verif);
          setpin:
@@ -34,17 +34,17 @@ function change(){
          echo color("nevy","?] Otp: ");
          $otpsetpin = trim(fgets(STDIN));
          $verifotpsetpin = request("/wallet/pin", $token, $data2, null, $otpsetpin, $uuid);
-         if($verifotpsetpin['success'] == 1){
+         if($verifotpsetpin == false)
+         {
+         else{echo color("red","-] Otp yang anda input salah");
+         echo color("yellow","!] Silahkan input kembali\n");
+         goto otpsetpin;
+         }
          echo color("green","+] Berhasil mendaftar");
          }
-         else{echo color("red","-] Otp yang anda input salah");
-         echo"\n==================================\n\n";
-         echo color("yellow","!] Silahkan input kembali\n");
-         goto otpsetpin;}
          }
          else{
          echo color("red","-] Otp yang anda input salah");
-         echo"\n==================================\n\n";
          echo color("yellow","!] Silahkan input kembali\n");
          goto otp;
          }
