@@ -37,13 +37,6 @@ function change(){
          $otpsetpin = trim(fgets(STDIN));
          $verifotpsetpin = request("/wallet/pin", $token, $data2, null, $otpsetpin, $uuid);
          echo $verifotpsetpin;
-         echo "\nMau dartar baru? (y/n): ";
-         $pilih = trim(fgets(STDIN));
-         if($pilih == "y" || $pilih == "Y"){
-         echo color("yellow","\n=============================================\n");
-         goto daftar;
-         }else{
-         Die();}
          }
          else{
          echo color("red","-] Otp yang anda input salah\n");
