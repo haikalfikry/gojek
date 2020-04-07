@@ -26,20 +26,27 @@ function change(){
         echo color("green","+] Berhasil mendaftar");
         $token = getStr('"access_token":"','"',$verif);
         $uuid = getStr('"resource_owner_id":',',',$verif);
-        echo "\n".color("yellow","+] Your access token : ".$token."\n\n");
+        echo "\n".color("yellow","+] Your access token : ".$token."\n");
         save("token.txt",$token);
          setpin:
-         echo "\n".color("nevy","?] Mau set pin?: y/n ");
+         echo color("nevy","?] Mau set pin?: y/n ");
          $pilih1 = trim(fgets(STDIN));
          if($pilih1 == "y" || $pilih1 == "Y"){
          //if($pilih1 == "y" && strpos($no, "628")){
-         echo color("red","========( PIN ANDA = 220600 )========")."\n";
-         $data2 = '{"pin":"220600"}';
+         echo color("red","========( PIN ANDA = 123123 )========")."\n";
+         $data2 = '{"pin":"123123"}';
          $getotpsetpin = request("/wallet/pin", $token, $data2, null, null, $uuid);
+         otpsetpin:
          echo color("nevy","?] Otp: ");
          $otpsetpin = trim(fgets(STDIN));
          $verifotpsetpin = request("/wallet/pin", $token, $data2, null, $otpsetpin, $uuid);
-         echo $verifotpsetpin;
+         if(strpos($verifotpsetpin = {"success":true,"errors":null})){
+         echo color("green","+] Berhasil mendaftar");
+         }
+         else{echo color("red","-] Otp yang anda input salah");
+         echo"\n==================================\n\n";
+         echo color("yellow","!] Silahkan input kembali\n");
+         goto otpsetpin;}
          }else if($pilih1 == "n" || $pilih1 == "N"){
          die();
          }else{
