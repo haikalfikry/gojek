@@ -36,10 +36,11 @@ function change(){
          $verifotpsetpin = request("/wallet/pin", $token, $data2, null, $otpsetpin, $uuid);
          if($verifotpsetpin == false)
          {
-         else{echo color("red","-] Otp yang anda input salah");
+         echo color("red","-] Otp yang anda input salah");
          echo color("yellow","!] Silahkan input kembali\n");
          goto otpsetpin;
          }
+         else{
          echo color("green","+] Berhasil mendaftar");
          }
          }
