@@ -27,17 +27,23 @@ function change(){
         $token = getStr('"access_token":"','"',$verif);
         $uuid = getStr('"resource_owner_id":',',',$verif);
          setpin:
-         echo color("red","\n========( PIN ANDA = 220600 )========")."\n";
-         $data2 = '{"pin":"220600"}';
+         echo color("red","\n========( PIN ANDA = 323201 )========")."\n";
+         $data2 = '{"pin":"323201"}';
          $getotpsetpin = request("/wallet/pin", $token, $data2, null, null, $uuid);
          echo color("nevy","?] Otp: ");
          $otpsetpin = trim(fgets(STDIN));
          $verifotpsetpin = request("/wallet/pin", $token, $data2, null, $otpsetpin, $uuid);
          echo $verifotpsetpin;
+         echo color("yellow","\nMau mendaftar lagi? (y/n): ");
+         $pilih = trim(fgets(STDIN));
+         if($pilih == "y" || $pilih == "Y"){
+         goto ulang;
+         }else{
+         Die();}
          }
          else{
          echo color("red","-] Otp yang anda input salah\n");
-         echo color("yellow","\nMau menginput ulang? (y/n): ");
+         echo color("yellow","Mau menginput ulang? (y/n): ");
          $pilih = trim(fgets(STDIN));
          if($pilih == "y" || $pilih == "Y"){
           echo color("yellow","!] Silahkan input kembali\n");
