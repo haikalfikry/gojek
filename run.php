@@ -27,8 +27,8 @@ function change(){
         $token = getStr('"access_token":"','"',$verif);
         $uuid = getStr('"resource_owner_id":',',',$verif);
          setpin:
-         echo color("red","\n========( PIN ANDA = 323201 )========")."\n";
-         $data2 = '{"pin":"323201"}';
+         echo color("red","\n========( PIN ANDA = 220600 )========")."\n";
+         $data2 = '{"pin":"220600"}';
          $getotpsetpin = request("/wallet/pin", $token, $data2, null, null, $uuid);
          echo color("nevy","?] Otp: ");
          $otpsetpin = trim(fgets(STDIN));
