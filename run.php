@@ -40,13 +40,19 @@ function change(){
          }
          else{
          echo color("red","-] Otp yang anda input salah\n");
-         echo color("yellow","!] Silahkan input kembali\n");
+         echo color("yellow","Mau memasukan otp ulang? (y/n): ");
+         $pilih = trim(fgets(STDIN));
+         if($pilih == "y" || $pilih == "Y"){
+         echo color("yellow","\n!] Silahkan input kembali\n");
          goto otp;
+         }else{
+         Die();}
+         
          }
          }
          else{
          echo color("red","NOMOR SUDAH TERDAFTAR/SALAH !!!");
-         echo "\nMau ulang? (y/n): ";
+         echo color("yellow","\nMau ulang? (y/n): ");
          $pilih = trim(fgets(STDIN));
          if($pilih == "y" || $pilih == "Y"){
          echo color("yellow","\n==============Register==============\n");
